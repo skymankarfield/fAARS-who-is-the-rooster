@@ -36,7 +36,7 @@ curl -i -X POST -H 'Content-Type: application/json' -d
     "currentStateKey": "initialState",  (required value)
     "active": "0",                      (possible values: 1/0)
     "transient": "1",					(possible values: 1/0)
-    "attributes": [						(can contain as many attributes as needed)
+    "attributes": [						(can contain as many attributes as needed. At least one attribute should be included)
         {
             "attributeKey": "attr1",	(required)
             "value": "val",				(required)
@@ -53,7 +53,7 @@ curl -i -X POST -H 'Content-Type: application/json' -d
             "active": "1"
         }
     ],
-    "groups": [ 						(can contain as many groups as needed)
+    "groups": [ 						(can contain as many groups as needed. At least one group should be included)
     	{
     		"groupKey": "group1",		(required)
     		"active": "1"				(possible values: 1/0)
