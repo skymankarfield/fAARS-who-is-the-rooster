@@ -1,21 +1,46 @@
-{
-    "fullObjectName": "fullName",
-    "objectKey": "objectKey",
-    "allowLogin": "1",
+# createObject
+New Game-Object data types can be created by sending a correctly formatted document
+to the corresponding URL including the JSON data in the POST body.
+
+* Method: POST
+* URL: /gameObjects/[gameKey]/[gameInstanceKey]
+* [gameKey]: who_is_the_rooster
+* [gameInstanceKey]: rooster1
+* Formats: JSON
+* Returns: JSON formatted message 'status = 0' on success, or 'errorCode+Message' on failure
+* Possible error codes:
+** 1 = SQL Execution Error
+** 2 = No game ID or game instance ID found
+** 3 = Error inserting game object into the database
+** 4 = Error inserting game object attributes into the database
+** 5 = Error inserting game object groups into the database
+** 6 = A game object attribute is missing: [attributeName]
+** 7 = A required game object attribute is empty: [attributeName]
+
+## Example creating a new Game-Object:
+
+
+### Request:
+curl -i -X POST -H 'Content-Type: application/json' -d
+
+'{
+    "fullObjectName": "fullName",  (it can be empty)
+    "objectKey": "objectKey",      (required value, unique)
+    "allowLogin": "1",             (possible values: 1/0)
     "loginInfo":[ 
     	{
-        "username": "email@mail.com",
-        "password": "passwordObject"
+        "username": "user",   		(it can be empty)
+        "password": "passwordObject" (it can be empty)
 		}
     ],
-    "currentStateKey": "initialState",
-    "active": "0",
-    "transient": "1",
-    "attributes": [
+    "currentStateKey": "initialState",  (required value)
+    "active": "0",                      (possible values: 1/0)
+    "transient": "1",					(possible values: 1/0)
+    "attributes": [						(can contain as many attributes as needed)
         {
-            "attributeKey": "attr1",
-            "value": "val",
-            "active": "1"
+            "attributeKey": "attr1",	(required)
+            "value": "val",				(required)
+            "active": "1"				(posible values: 1/0)
         },
         {
             "attributeKey": "attr2",
@@ -28,10 +53,10 @@
             "active": "1"
         }
     ],
-    "groups": [ 
+    "groups": [ 						(can contain as many groups as needed)
     	{
-    		"groupKey": "group1",
-    		"active": "1"
+    		"groupKey": "group1",		(required)
+    		"active": "1"				(possible values: 1/0)
 		},
 		{
     		"groupKey": "group2",
@@ -44,9 +69,16 @@
    	],
    	"currentGPSLocation":[ 
    		{
-   			"currentLat": "1000000",
-   			"currentLon": "1000000"
+   			"currentLat": "1000000",	(it can be empty)
+   			"currentLon": "1000000"		(it can be empty)
    		}
 	],
-   	"currentZone": "initialZone"
-}
+   	"currentZone": "initialZone"		(required, value can be anything)
+}'
+
+http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+
+### Possible Responses
+
+* On Success: {"status":0}
+* On Failure: {"status":1,"message":"SQL Exception"}
