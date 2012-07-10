@@ -1,0 +1,52 @@
+{
+    "fullObjectName": "fullName",
+    "objectKey": "objectKey",
+    "allowLogin": "1",
+    "loginInfo":[ 
+    	{
+        "username": "email@mail.com",
+        "password": "passwordObject"
+		}
+    ],
+    "currentStateKey": "initialState",
+    "active": "0",
+    "transient": "1",
+    "attributes": [
+        {
+            "attributeKey": "attr1",
+            "value": "val",
+            "active": "1"
+        },
+        {
+            "attributeKey": "attr2",
+            "value": "val",
+            "active": "0"
+        },
+        {
+            "attributeKey": "attr3",
+            "value": "val",
+            "active": "1"
+        }
+    ],
+    "groups": [ 
+    	{
+    		"groupKey": "group1",
+    		"active": "1"
+		},
+		{
+    		"groupKey": "group2",
+    		"active": "0"
+		},
+		{
+    		"groupKey": "group3",
+    		"active": "0"
+		}
+   	],
+   	"currentGPSLocation":[ 
+   		{
+   			"currentLat": "1000000",
+   			"currentLon": "1000000"
+   		}
+	],
+   	"currentZone": "initialZone"
+}
