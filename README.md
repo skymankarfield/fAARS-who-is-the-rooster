@@ -7,6 +7,10 @@ fAARS - Rocketfuel Games, Who's the Rooster?
 
 _Current base URI:_ http://faars-rocketfuel.javakafe.com/
 
+_[gameKey]:_ who_is_the_rooster
+
+_[gameInstanceKey]:_ rooster1
+
 _Base system:_ CentOS release 6.2 (Final)
 
 _Base Kernel:_ Linux 2.6.32.28-xenU #1 SMP Thu Jan 20 00:41:40 UTC 2011 i686 i686 i386 GNU/Linux
