@@ -1,0 +1,89 @@
+# getObjectByKey
+Get details of all the Game-Objects that belong to specific instance of a game by providing a
+game instance key.
+
+* Method: GET
+* URL: /gameObjects/[gameKey]/[gameInstanceKey]
+* [gameKey]: who_is_the_rooster
+* [gameInstanceKey]: rooster1
+* Formats: JSON
+* Returns: JSON formatted message containing information about all the Game-Objects on success,
+			 or 'errorCode+Message' on failure
+* Possible error codes (on failure):
+** 1 = SQL Execution Error
+** 2 = No game ID or game instance ID found
+** 8 = No game object ID found
+** 9 = No game object entry found in database with given keys
+** 10 = No game object attributes entry found in database with given keys
+** 11 = No game object groups entry found in database with given keys
+** 12 = No game object entries found in database with given game instance key
+
+## Example getting a Game-Object:
+
+### Request:
+
+curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+
+### Possible Responses
+
+* On Success:
+
+'{
+	"status": 0,
+	"gameObjects": [
+	{
+    "fullObjectName": "fullName",  
+    "objectKey": "objectKey",      
+    "allowLogin": "1",             
+    "loginInfo":[ 
+    	{
+        "username": "user",   		
+        "password": "passwordObject" 
+		}
+    ],
+    "currentStateKey": "initialState",  
+    "active": "0",                      
+    "transient": "1",					
+    "attributes": [						
+        {
+            "attributeKey": "attr1",	
+            "value": "val",				
+            "active": "1"				
+        },
+        {
+            "attributeKey": "attr2",
+            "value": "val",
+            "active": "0"
+        },
+        {
+            "attributeKey": "attr3",
+            "value": "val",
+            "active": "1"
+        }
+    ],
+    "groups": [ 						
+    	{
+    		"groupKey": "group1",		
+    		"active": "1"				
+		},
+		{
+    		"groupKey": "group2",
+    		"active": "0"
+		},
+		{
+    		"groupKey": "group3",
+    		"active": "0"
+		}
+   	],
+   	"currentGPSLocation":[ 
+   		{
+   			"currentLat": "1000000",	
+   			"currentLon": "1000000"		
+   		}
+	],
+   	"currentZone": "initialZone"		
+	}
+	]
+}'
+
+* On Failure: {"status":1,"message":"SQL Exception"}

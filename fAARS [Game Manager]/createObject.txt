@@ -8,7 +8,7 @@ to the corresponding URL including the JSON data in the POST body.
 * [gameInstanceKey]: rooster1
 * Formats: JSON
 * Returns: JSON formatted message 'status = 0' on success, or 'errorCode+Message' on failure
-* Possible error codes:
+* Possible error codes (on failure):
 ** 1 = SQL Execution Error
 ** 2 = No game ID or game instance ID found
 ** 3 = Error inserting game object into the database
