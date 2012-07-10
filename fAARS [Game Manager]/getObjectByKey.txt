@@ -1,5 +1,5 @@
 # getObjectByKey
-Get details of a specific Game-Object by providing its game key.
+Get details of a specific Game-Object by providing its key.
 
 * Method: GET
 * URL: /gameObjects/[gameKey]/[gameInstanceKey]/[objectKey]

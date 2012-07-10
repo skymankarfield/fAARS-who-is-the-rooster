@@ -1,4 +1,4 @@
-# getObjectByKey
+# getAllGameObjectsByGameInstanceKey
 Get details of all the Game-Objects that belong to specific instance of a game by providing a
 game instance key.
 

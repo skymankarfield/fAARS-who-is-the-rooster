@@ -1,4 +1,4 @@
-# getObjectByKey
+# getAllGameObjectsByGroupKey
 Get details of all the Game-Objects that belong to specific group by providing a
 group key.
 
