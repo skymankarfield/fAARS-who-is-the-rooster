@@ -1,4 +1,4 @@
-fAARS-who-is-the-rooster
+Welcome to fAARS-who-is-the-rooster API Documentation
 ========================
 
 fAARS - Rocketfuel Games, Who's the Rooster?
