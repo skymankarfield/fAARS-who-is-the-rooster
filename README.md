@@ -37,26 +37,26 @@ A Game-Group data type is an abstraction that groups Game-Objects together in or
 A Game-Object data type is the minimal and essential component of every game deployed on fAARS. It contains a specific set of default attributes, but it also allows support for an unlimited multiple inheritance and 'game developer-created' attributes.
 
 ### Default list of Game-Object attributes
-* fullObjectName
-* objectKey
-* allowLogin
-* loginInfo
-* currentStateKey
-* active
-* transient
-* currentGPSLocation
-* currentZone
+* _fullObjectName_: Title or full name of the Game-Object. Used for displaying purposes only. It can contain either a number or a string value.
+* _objectKey_: This is a unique value that represents a particular Game-Object in an instance of a game. It can contain either a number or a string value.
+* _allowLogin_: Specifies whether a particular Game-Object is part of the pool of the login information. It can contain either '1' or '0' as value.
+* _loginInfo_: This is a struct that contains a 'username' and 'password' fields for a particular Game-Object. The 'username' and 'password' fields can contain either a number or a string value.
+* _currentStateKey_: Contains the current state of a Game-Object in the game. This can contain either a number or a string value.
+* _active_: Defines whether a Game-Object is active or not. In other words, whether a Game-Object should be considered to be part of the fAARS game rules processing. It can contain either '1' or '0' as value.
+* _transient_: Allows to differentiate between temporal and essential objects in a game instance during cloning of a game in fAARS. It can contain either '1' or '0' as value.
+* _currentGPSLocation_: A struct composed by 'currentLat' and 'currentLon', which allows to determine the current GPS position of a Game-Object. 'currentLat' and 'currentLon' should contain interger values.
+* _currentZone_: Determines the current abstract location of an object in a game on fAARS. It can contain either a number or a string value.
 
 ### Groups
 Groups are contained in the "groups" attribute set. Every group element contained in the "groups" attribute set is specified by two parameters:
-* groupKey
-* active
+* _groupKey_: Name of a group that a particular Game-Object belongs to. It can contain either a number or a string value.
+* _active_: Defines whether a Game-Object is actively part of a group to be considered to be part of the fAARS game rules processing.  It can contain either '1' or '0' as value.
 
 ### Extra attributes
-Besides the default list of Game-Object attributes, any number of extra attributes can be supported in the "attributes" attribute set. Every extra attribute contained in the "attributes" attribute set is specified by two parameters:
-* attributeKey
-* value
-* active
+Besides the default list of Game-Object attributes, any number of extra attributes can be supported in the "attributes" attribute set. Every extra attribute contained in the "attributes" attribute set is specified by three parameters:
+* _attributeKey_: Name of the attribute. It can contain either a number or a string value.
+* _value_: Value that contains a specific attribute. It can contain either a number or a string value.
+* _active_: Whether to consider a partiular attribute as part of the fAARS game rules.
 
 ### Operations
 All the Game-Object data types support the primitive set of operations "add/substract/divide/multiply" over any of their default and extra set of attributes. Any Game-Object data type can access any of the primitive operations.
