@@ -19,7 +19,7 @@ group key.
 ** 11 = No game object groups entry found in database with given keys
 ** 13 = No game object entries found in database with given object group key
 
-## Example getting a Game-Object:
+## Example getting Game-Objects:
 
 ### Request:
 

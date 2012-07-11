@@ -1,0 +1,29 @@
+# deleteAllGameObjectsByGroupKey
+Delete all the Game-Objects that belong to specific group by providing a
+group key.
+
+* Method: DELETE
+* URL: /gameObjects/[gameKey]/[gameInstanceKey]/groups/[groupKey]
+* [gameKey]: who_is_the_rooster
+* [gameInstanceKey]: rooster1
+* [groupKey]: Any group key value
+* Formats: JSON
+* Returns: JSON formatted message '{status:0} on success,
+			 or 'errorCode+Message' on failure
+* Possible error codes (on failure):
+** 1 = SQL Execution Error
+** 2 = No game ID or game instance ID found
+** 8 = No game object ID found
+** 9 = No game object entry found in database with given keys
+** 13 = No game object entries found in database with given object group key
+
+## Example deleting Game-Objects:
+
+### Request:
+
+curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/groups/group2
+
+### Possible Responses
+
+* On Success: {"status":0}
+* On Failure: {"status":1,"message":"SQL Exception"}

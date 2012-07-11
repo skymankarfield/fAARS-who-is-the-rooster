@@ -18,7 +18,7 @@ game instance key.
 ** 11 = No game object groups entry found in database with given keys
 ** 12 = No game object entries found in database with given game instance key
 
-## Example getting a Game-Object:
+## Example getting Game-Objects:
 
 ### Request:
 

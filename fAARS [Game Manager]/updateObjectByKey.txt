@@ -1,0 +1,86 @@
+# updateObjectByKey
+Updates a specific Game-Object by providing its key.
+
+* Method: PUT
+* URL: /gameObjects/[gameKey]/[gameInstanceKey]/[objectKey]
+* [gameKey]: who_is_the_rooster
+* [gameInstanceKey]: rooster1
+* [objectKey]: The unique object key specified when creating the Game-Object
+* Formats: JSON
+* Returns: JSON formatted message '{status:0} on success,
+			 or 'errorCode+Message' on failure
+* Possible error codes (on failure):
+** 1 = SQL Execution Error
+** 2 = No game ID or game instance ID found
+** 3 = Error inserting game object into the database
+** 4 = Error inserting game object attributes into the database
+** 5 = Error inserting game object groups into the database
+** 6 = A game object attribute is missing: [attributeName]
+** 7 = A required game object attribute is empty: [attributeName]
+** 8 = No game object ID found
+** 9 = No game object entry found in database with given keys
+
+## Example updating a Game-Object:
+
+### Request:
+curl -i -X PUT -H 'Content-Type: application/json' -d 
+
+'{
+    "fullObjectName": "fullName",  (it can be empty)
+    "objectKey": "objectKey",      (required value, unique)
+    "allowLogin": "1",             (possible values: 1/0)
+    "loginInfo":[ 
+    	{
+        "username": "user",   		(it can be empty)
+        "password": "passwordObject" (it can be empty)
+		}
+    ],
+    "currentStateKey": "initialState",  (required value)
+    "active": "0",                      (possible values: 1/0)
+    "transient": "1",					(possible values: 1/0)
+    "attributes": [						(can contain as many attributes as needed. At least one attribute should be included)
+        {
+            "attributeKey": "attr1",	(required)
+            "value": "val",				(required)
+            "active": "1"				(posible values: 1/0)
+        },
+        {
+            "attributeKey": "attr2",
+            "value": "val",
+            "active": "0"
+        },
+        {
+            "attributeKey": "attr3",
+            "value": "val",
+            "active": "1"
+        }
+    ],
+    "groups": [ 						(can contain as many groups as needed. At least one group should be included)
+    	{
+    		"groupKey": "group1",		(required)
+    		"active": "1"				(possible values: 1/0)
+		},
+		{
+    		"groupKey": "group2",
+    		"active": "0"
+		},
+		{
+    		"groupKey": "group3",
+    		"active": "0"
+		}
+   	],
+   	"currentGPSLocation":[ 
+   		{
+   			"currentLat": "1000000",	(it can be empty)
+   			"currentLon": "1000000"		(it can be empty)
+   		}
+	],
+   	"currentZone": "initialZone"		(required, value can be anything)
+}'
+
+http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/objectKey6
+
+### Possible Responses
+
+* On Success: {"status":0}
+* On Failure: {"status":1,"message":"SQL Exception"}

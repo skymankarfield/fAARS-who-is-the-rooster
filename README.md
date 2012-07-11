@@ -72,7 +72,7 @@ The fAARS API is currently entirely based on HTTP requests, and conforms to the 
 * GET : Used to retrieve data. Retrieves information about game objects and game state.
 * PUT : Used to update data in fAARS. Updates a game object and triggers events, operations and actions.
 * POST : Used to store new game objects.
-* DELETE : Used to Deletes a game objects.
+* DELETE : Used to delete game objects.
 
 ## HTTP Status Codes
 The fAARS API attempts to return appropriate HTTP status codes (see http://en.wikipedia.org/wiki/List_of_HTTP_status_codes) for every request.
@@ -83,6 +83,7 @@ The fAARS API attempts to return appropriate HTTP status codes (see http://en.wi
 * 401 Not Authorized: either you need to provide authentication credentials, or the credentials provided aren't valid.
 * 403 Forbidden: fAARS understands your request, but refuses to fulfill it. An accompanying error message should explain why.
 * 404 Not Found: You're requesting an invalid URI.
+* 405 Method not allowed: fAARS understands your requests, but doesn't allow you to execute a resource using a specified method PUT, GET, DELETE, etc.
 * 500 Internal Server Error: Something went wrong...
 
 ## Summary of fAARS response codes
