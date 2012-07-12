@@ -101,3 +101,7 @@ Whenever appropriate, some of the fAARS APIs will return a JSON formatted {"stat
 * 11 = No game object groups entry found in database with given keys
 * 12 = No game object entries found in database with given game instance key
 * 13 = No game object entries found in database with given object group key
+* 14 = No game object attribute entry found in database with given keys
+* 15 = No valid operation
+* 16 = Values are not permitted for the requested operation
+* 17 = Update operation was not successful, or there is nothing to update
