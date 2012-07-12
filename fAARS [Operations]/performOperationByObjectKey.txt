@@ -7,7 +7,7 @@ In order to directly modify the automatically inherited set of attributes outsid
 Game-Object, please refer to the [Game Manager] set of APIs.
 
 * Method: PUT 
-* URL: /gameObjects/[gameKey]/[gameInstanceKey]/[objectKey]/[attributeKey]
+* URL: /operations/[gameKey]/[gameInstanceKey]/[objectKey]/[attributeKey]
 * [gameKey]: who_is_the_rooster
 * [gameInstanceKey]: rooster1
 * [objectKey]: The unique object key specified when creating the Game-Object
