@@ -1,9 +1,10 @@
 # performOperationByObjectKey
-This API allows to set values and apply operatios over the game-developer-created set of attributes that are specified
+This API allows to set values and apply operations over the game-developer-created set of attributes that are specified
 in the "attributes" section of the JSON file when a new Game-Object is created.
-This API allows to modify only those attributes of a Game-Object that are specified in the "attributes" section of a Game-Object.
-In order to directly modify the automatically inherited set of attributes outside the "attributes" section of a Game-Object,
-please refer to the [Game Manager] set of APIs.
+This API allows to modify only those attributes of a Game-Object that are specified in the "attributes" section of 
+a Game-Object.
+In order to directly modify the automatically inherited set of attributes outside the "attributes" section of a 
+Game-Object, please refer to the [Game Manager] set of APIs.
 
 * Method: PUT 
 * URL: /gameObjects/[gameKey]/[gameInstanceKey]/[objectKey]/[attributeKey]
@@ -31,7 +32,8 @@ please refer to the [Game Manager] set of APIs.
 curl -i -X PUT -H 'Content-Type: application/json' -d 
 
 '{"value":"5",   (any value. It can't be empty)
-"operation":"+"  (accepted operator values are '+','-','/','*' and 'set'. The 'set' operator allows to set the value of an attribute)
+"operation":"+"  (accepted operator values are '+','-','/','*' and 'set'. The 'set' operator allows to set the value 
+							of an attribute)
 }' 
 http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/ObjectKeyTest/attr1
 
