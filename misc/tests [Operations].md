@@ -5,6 +5,12 @@
 curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/ObjectKeyTest/attr1
 
 
+* Receives a JSON file via PUT method:
+{
+	"value":"5",
+	"operation":"+"
+}
+
 * Sample Response 'On Success':
 {
     "status": 0,
@@ -31,6 +37,13 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":
 
 ### performOperationByGroupKey
 curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/groups/group2/attr1
+
+
+* Receives a JSON file via PUT method:
+{
+	"value":"5",
+	"operation":"+"
+}
 
 
 * Sample Response 'On Success':
@@ -93,6 +106,13 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":
 
 ### peformOperationByGameInstanceKey
 curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/attr1
+
+
+* Receives a JSON file via PUT method:
+{
+	"value":"5",
+	"operation":"+"
+}
 
 
 * Sample Response 'On Success':

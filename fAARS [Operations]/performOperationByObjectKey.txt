@@ -1,6 +1,7 @@
 # performOperationByObjectKey
 This API allows to set values and apply operations over the game-developer-created set of attributes that are specified
-in the "attributes" section of the JSON file when a new Game-Object is created.
+in the "attributes" section of the JSON file when a new Game-Object is created by providing its unique object Key ID
+and Attribute Key ID.
 This API allows to modify only those attributes of a Game-Object that are specified in the "attributes" section of 
 a Game-Object.
 In order to directly modify the automatically inherited set of attributes outside the "attributes" section of a 
@@ -10,12 +11,12 @@ Game-Object, please refer to the [Game Manager] set of APIs.
 * URL: /operations/[gameKey]/[gameInstanceKey]/[objectKey]/[attributeKey]
 * [gameKey]: who_is_the_rooster
 * [gameInstanceKey]: rooster1
-* [objectKey]: The unique object key specified when creating the Game-Object
-* [attributeKey]: Key of one of the attributes of a Game-Object specified in the "attributes" array
+* [objectKey]: The unique object key ID value specified when creating the Game-Object
+* [attributeKey]: Attribute Key ID of one of the attributes of a Game-Object specified in the "attributes" array
 * Formats: JSON
-* Returns: JSON formatted message '{status:0} on success,
-			 or 'errorCode+Message' on failure
-* Possible error codes (on failure):
+* Returns: JSON formatted message. See example below.
+* Possible return message codes:
+** 0 = Success
 ** 1 = SQL Execution Error
 ** 2 = No game ID or game instance ID found
 ** 6 = A game object attribute is missing: [attributeName]
@@ -26,18 +27,36 @@ Game-Object, please refer to the [Game Manager] set of APIs.
 ** 16 = Values are not permitted for the requested operation
 ** 17 = Update operation was not successful, or there is nothing to update
 
-## Example updating a Game-Object:
+## Example updating a Game-Object attribute by providing its unique Key ID and Attribute Key ID:
 
-### Request:
-curl -i -X PUT -H 'Content-Type: application/json' -d 
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/ObjectKeyTest/attr1
 
-'{"value":"5",   (any value. It can't be empty)
-"operation":"+"  (accepted operator values are '+','-','/','*' and 'set'. The 'set' operator allows to set the value 
-							of an attribute)
-}' 
-http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/ObjectKeyTest/attr1
 
-### Possible Responses
+* Receives a JSON file via PUT method:
+{
+	"value":"5", (Value to be used in the operation. It can take any value. A value is required)
+	"operation":"+" (The operation to be performed. It can only take '+', '-', '/', '*', or 'set' as values. A value is required)
+}
 
-* On Success: {"status":0}
-* On Failure: {"status":1,"message":"SQL Exception"}
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "performOperationByObjectKey",
+        "objectKey": "objectKey6",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "attributeKey": "attr1"
+    }
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "ObjectKeyTest"
+    }
+}

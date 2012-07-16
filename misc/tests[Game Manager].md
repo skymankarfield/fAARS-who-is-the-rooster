@@ -913,6 +913,61 @@ curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_ro
 curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full new name","objectKey":"objectKey6","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/objectKey6
 
 
+* Receives a JSON file via PUT method:
+{
+    "fullObjectName": "fullName",
+    "objectKey": "objectKeyTest",
+    "allowLogin": "1",
+    "loginInfo": [
+        {
+            "username": "email@mail.com",
+            "password": "passwordObject"
+        }
+    ],
+    "currentStateKey": "initialState",
+    "active": "0",
+    "transient": "1",
+    "attributes": [
+        {
+            "attributeKey": "attr1",
+            "value": "val",
+            "active": "1"
+        },
+        {
+            "attributeKey": "attr2",
+            "value": "val",
+            "active": "0"
+        },
+        {
+            "attributeKey": "attr3",
+            "value": "val",
+            "active": "1"
+        }
+    ],
+    "groups": [
+        {
+            "groupKey": "group4",
+            "active": "1"
+        },
+        {
+            "groupKey": "group5",
+            "active": "0"
+        },
+        {
+            "groupKey": "group6",
+            "active": "0"
+        }
+    ],
+    "currentGPSLocation": [
+        {
+            "currentLat": "1000000",
+            "currentLon": "1000000"
+        }
+    ],
+    "currentZone": "initialZone"
+}
+
+
 * Sample Response 'On Success':
 {
     "status": 0,
