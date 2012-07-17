@@ -989,3 +989,35 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full
         "objectKey": "objectKey6"
     }
 }
+
+
+### VerifyObjectLogin
+curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/verifyObjectLogin/email2@mail.com/passwordObject2
+
+
+* Sample Response 'On Success':
+{
+    "objectKey": "objectKeyTest2",
+    "active": "0",
+    "allowLogin": "1",
+    "status": 0,
+    "details": {
+        "action": "verifyObjectLogin",
+        "username": "email2@mail.com",
+        "password": "passwordObject2",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1"
+    }
+}
+
+
+* Sample Reponse 'On Failure':
+{
+    "status": 2,
+    "message": "No game ID or game instance ID found",
+    "details": {
+        "action": "getGameInstanceID",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooter1"
+    }
+}

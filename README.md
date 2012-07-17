@@ -105,3 +105,4 @@ Whenever appropriate, some of the fAARS APIs will return a JSON formatted {"stat
 * 15 = No valid operation
 * 16 = Values are not permitted for the requested operation
 * 17 = Update operation was not successful, or there is nothing to update
+* 18 = Game-Object not found with given username and password
