@@ -19,6 +19,7 @@ Updates a specific Game-Object by providing its unique Key ID.
 ** 7 = A required game object attribute is empty: [attributeName]
 ** 8 = No game object ID found
 ** 9 = No game object entry found in database with given keys
+** 19 = Provided username and password value pair already exists
 
 ## Example updating a Game-Object by its unique Key ID:
 
