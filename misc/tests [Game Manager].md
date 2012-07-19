@@ -2,7 +2,7 @@
 
 ## [Game Manager]
 ### createObject
-curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest10","allowLogin":"1","loginInfo":[{"username":"email11@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest10","allowLogin":"1","loginInfo":[{"username":"email11@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
 
 
 * Receives a JSON file via POST method:
@@ -86,7 +86,7 @@ curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullN
 
 
 ### getObjectByKey
-curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/objectKey21
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey21
 
 
 * Sample Response 'On Success':
@@ -159,7 +159,7 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_roost
 
 
 ### getAllGameObjectsByGameInstanceKey
-curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
 
 
 * Sample Response 'On Success':
@@ -573,7 +573,7 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_roost
 
 
 ### getAllGameObjectsByGroupKey
-curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/groups/group2
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/groups/group2
 
 
 * Sample Response 'On Success':
@@ -769,7 +769,7 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_roost
 
 
 ### deleteObjectByKey
-curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/objectKey2
+curl -i -X DELETE http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey2
 
 
 * Sample Response 'On Success':
@@ -796,7 +796,7 @@ curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_ro
 
 
 ### deleteAllGameObjectsByGroupKey
-curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/groups/group2
+curl -i -X DELETE http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/groups/group2
 
 
 * Sample Response 'On Success':
@@ -854,7 +854,7 @@ curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_ro
 
 
 ### deleteAllGameObjectsByGameInstanceKey
-curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+curl -i -X DELETE http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
 
 
 * Sample Response 'On Success':
@@ -910,7 +910,7 @@ curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_ro
 
 
 ### updateObjectByKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full new name","objectKey":"objectKey6","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/objectKey6
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full new name","objectKey":"objectKey6","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey6
 
 
 * Receives a JSON file via PUT method:
@@ -992,7 +992,7 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full
 
 
 ### VerifyObjectLogin
-curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/verifyObjectLogin/email2@mail.com/passwordObject2
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/verifyObjectLogin/email2@mail.com/passwordObject2
 
 
 * Sample Response 'On Success':

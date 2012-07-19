@@ -1,12 +1,13 @@
 # TESTS
 
 ## [Operations]
-### performOperatioByObjectKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/ObjectKeyTest/attr1
+### performOperationByObjectKey
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"attr1","value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/operations/ObjectKeyTest
 
 
 * Receives a JSON file via PUT method:
 {
+	"attributeKey":"attr1",
 	"value":"5",
 	"operation":"+"
 }
@@ -36,11 +37,12 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":
 
 
 ### performOperationByGroupKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/groups/group2/attr1
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"attr1","value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/operations/groups/group2
 
 
 * Receives a JSON file via PUT method:
 {
+	"attributeKey":"attr1",
 	"value":"5",
 	"operation":"+"
 }
@@ -104,12 +106,13 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":
 }
 
 
-### peformOperationByGameInstanceKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/attr1
+### performOperationByGameInstanceKey
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"attr1","value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/operations
 
 
 * Receives a JSON file via PUT method:
 {
+	"attributeKey":"attr1",
 	"value":"5",
 	"operation":"+"
 }

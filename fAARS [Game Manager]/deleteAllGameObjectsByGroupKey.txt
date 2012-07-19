@@ -3,7 +3,7 @@ Delete all the Game-Objects that belong to a specific group by providing a
 Group Key ID.
 
 * Method: DELETE
-* URL: /gameObjects/[gameKey]/[gameInstanceKey]/groups/[groupKey]
+* URL: /[gameKey]/[gameInstanceKey]/gameObjects/groups/[groupKey]
 * [gameKey]: who_is_the_rooster
 * [gameInstanceKey]: rooster1
 * [groupKey]: Any group key value
@@ -19,7 +19,7 @@ Group Key ID.
 
 ## Example deleting Game-Objects by Group Key ID:
 
-curl -i -X DELETE http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1/groups/group2
+curl -i -X DELETE http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/groups/group2
 
 
 * Sample Response 'On Success':

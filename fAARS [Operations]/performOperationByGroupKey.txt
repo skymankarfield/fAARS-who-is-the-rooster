@@ -8,7 +8,7 @@ In order to directly modify the automatically inherited set of attributes outsid
 Game-Object, please refer to the [Game Manager] set of APIs.
 
 * Method: PUT 
-* URL: /operations/[gameKey]/[gameInstanceKey]/groups/[groupKey]/[attributeKey]
+* URL: /[gameKey]/[gameInstanceKey]/operations/groups/[groupKey]
 * [gameKey]: who_is_the_rooster
 * [gameInstanceKey]: rooster1
 * [groupKey]: Any group key value
@@ -33,11 +33,12 @@ Game-Object, please refer to the [Game Manager] set of APIs.
 
 ## Example updating a set of Game-Objects attribute by providing a Group Key ID and Attribute Key ID:
 
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/operations/who_is_the_rooster/rooster1/groups/group2/attr1
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"attr1","value":"5","operation":"+"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/operations/groups/group2
 
 
 * Receives a JSON file via PUT method:
 {
+	"attributeKey":"attr1", (Attribute Key. It can take any value. A value is required)
 	"value":"5", (Value to be used in the operation. It can take any value. A value is required)
 	"operation":"+" (The operation to be performed. It can only take '+', '-', '/', '*', or 'set' as values. A value is required)
 }

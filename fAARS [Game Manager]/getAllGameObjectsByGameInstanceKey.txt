@@ -3,7 +3,7 @@ Get details of all the Game-Objects that belong to a specific instance of a game
 Game Instance Key ID.
 
 * Method: GET
-* URL: /gameObjects/[gameKey]/[gameInstanceKey]
+* URL: /[gameKey]/[gameInstanceKey]/gameObjects
 * [gameKey]: who_is_the_rooster
 * [gameInstanceKey]: rooster1
 * Formats: JSON
@@ -19,7 +19,7 @@ Game Instance Key ID.
 
 ## Example getting Game-Objects by Game Instance Key ID:
 
-curl -i -X GET http://faars-rocketfuel.javakafe.com/gameObjects/who_is_the_rooster/rooster1
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
 
 
 * Sample Response 'On Success':
