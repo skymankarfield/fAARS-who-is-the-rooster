@@ -20,10 +20,11 @@ Updates a specific Game-Object by providing its unique Key ID.
 ** 8 = No game object ID found
 ** 9 = No game object entry found in database with given keys
 ** 19 = Provided username and password value pair already exists
+** 22 = Error inserting game object collections into the database
 
 ## Example updating a Game-Object by its unique Key ID:
 
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full new name","objectKey":"objectKey6","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey6
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"collections":[{"collectionKey":"coll1","value":[1,2,3],"active":"1"},{"collectionKey":"coll2","value":[4,5,6],"active":"1"},{"collectionKey":"coll3","value":[7,8,9],"active":"1"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey6
 
 
 * Receives a JSON file via PUT method:
@@ -69,6 +70,23 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full
         {
             "groupKey": "group6",
             "active": "0"
+        }
+    ],
+    "collections": [ (Container for the list of collections of a Game-Object. It should contain at least one collection specified)
+        {
+            "collectionKey": "coll1", (Key ID of a collection. It should be unique within the context of a Game-Object. It can take any value. A value is required)
+            "value": [1,2,3], (Values in the collection. It can take any values. A value is required)
+            "active": "1" (Whether a collection is active or not to be considered as part of the fAARS game rules processig. It can only take '0' or '1' as values. A value is required)
+        },
+        {
+            "collectionKey": "coll2",
+            "value": [4,5,6],
+            "active": "0"
+        },
+        {
+            "collectionKey": "coll3",
+            "value": [7,8,9],
+            "active": "1"
         }
     ],
     "currentGPSLocation": [ (Container for the current GPS location of a Game-Object. It can't be empty, and it should contain the 'currentLat' and 'currentLon' attributes specified))

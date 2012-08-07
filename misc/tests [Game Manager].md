@@ -2,7 +2,7 @@
 
 ## [Game Manager]
 ### createObject
-curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest10","allowLogin":"1","loginInfo":[{"username":"email11@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
+curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"collections":[{"collectionKey":"coll1","value":[1,2,3],"active":"1"},{"collectionKey":"coll2","value":[4,5,6],"active":"1"},{"collectionKey":"coll3","value":[7,8,9],"active":"1"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects
 
 
 * Receives a JSON file via POST method:
@@ -48,6 +48,23 @@ curl -i -X POST -H 'Content-Type: application/json' -d '{"fullObjectName":"fullN
         {
             "groupKey": "group6",
             "active": "0"
+        }
+    ],
+    "collections": [
+        {
+            "collectionKey": "coll1",
+            "value": [1,2,3],
+            "active": "1"
+        },
+        {
+            "collectionKey": "coll2",
+            "value": [4,5,6],
+            "active": "0"
+        },
+        {
+            "collectionKey": "coll3",
+            "value": [7,8,9],
+            "active": "1"
         }
     ],
     "currentGPSLocation": [
@@ -106,37 +123,66 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
         "username": "email@mail.com",
         "password": "passwordObject"
     },
-    "attributes": [
-        {
+    "attributes": {
+        "attr1": {
             "attributeKey": "attr1",
             "value": "val",
             "active": "1"
         },
-        {
+        "attr2": {
             "attributeKey": "attr2",
             "value": "val",
             "active": "0"
         },
-        {
+        "attr3": {
             "attributeKey": "attr3",
             "value": "val",
             "active": "1"
         }
-    ],
-    "groups": [
-        {
+    },
+    "groups": {
+        "group4": {
             "groupKey": "group4",
             "active": "1"
         },
-        {
+        "group5": {
             "groupKey": "group5",
             "active": "0"
         },
-        {
+        "group6": {
             "groupKey": "group6",
             "active": "0"
         }
-    ],
+    },
+    "collections": {
+        "coll1": {
+            "collectionKey": "coll1",
+            "value": [
+                "1",
+                "2",
+                "3"
+            ],
+            "active": "1"
+        },
+        "coll2": {
+            "collectionKey": "coll2",
+            "value": [
+                "4",
+                "5",
+                "6"
+            ],
+            "active": "1"
+        },
+        "coll3": {
+            "collectionKey": "coll3",
+            "value": [
+                "7",
+                "8",
+                "9"
+            ],
+            "active": "1"
+        }
+    },
     "status": 0,
     "details": {
         "action": "getObjectByKey",
@@ -166,8 +212,140 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
 {
     "gameObjects": [
         {
+            "fullObjectName": "Who is the Rooster?",
+            "objectKey": "game_instance_1",
+            "currentStateKey": "running",
+            "currentZone": "noZone",
+            "allowLogin": "0",
+            "transient": "0",
+            "active": "1",
+            "currentGPSLocation": {
+                "currentLat": "0",
+                "currentLon": "0"
+            },
+            "loginInfo": {
+                "username": "",
+                "password": ""
+            },
+            "attributes": {
+                "version": {
+                    "attributeKey": "version",
+                    "value": "1.0",
+                    "active": "0"
+                }
+            },
+            "groups": {
+                "system": {
+                    "groupKey": "system",
+                    "active": "1"
+                }
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
+            "status": 0,
+            "details": {
+                "action": "getObjectByKey",
+                "objectKey": "game_instance_1",
+                "gameKey": "who_is_the_rooster",
+                "gameInstanceKey": "rooster1"
+            }
+        },
+        {
+            "fullObjectName": "Lucio Gutierrez",
+            "objectKey": "lucio_gutierrez",
+            "currentStateKey": "idle",
+            "currentZone": "uofa",
+            "allowLogin": "1",
+            "transient": "1",
+            "active": "1",
+            "currentGPSLocation": {
+                "currentLat": "0",
+                "currentLon": "0"
+            },
+            "loginInfo": {
+                "username": "lucio@ualberta.ca",
+                "password": "blabla"
+            },
+            "attributes": {
+                "score": {
+                    "attributeKey": "score",
+                    "value": "0",
+                    "active": "1"
+                }
+            },
+            "groups": {
+                "players": {
+                    "groupKey": "players",
+                    "active": "1"
+                }
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
+            "status": 0,
+            "details": {
+                "action": "getObjectByKey",
+                "objectKey": "lucio_gutierrez",
+                "gameKey": "who_is_the_rooster",
+                "gameInstanceKey": "rooster1"
+            }
+        },
+        {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest",
+            "objectKey": "objectKeyTest10",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -178,51 +356,80 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email11@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
-                    "attributeKey": "attr1",
+            "attributes": {
+                "attr3": {
+                    "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
-                    "attributeKey": "attr3",
+                "attr1": {
+                    "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group4",
-                    "active": "1"
+            },
+            "groups": {
+                "group6": {
+                    "groupKey": "group6",
+                    "active": "0"
                 },
-                {
+                "group5": {
                     "groupKey": "group5",
                     "active": "0"
                 },
-                {
-                    "groupKey": "group6",
-                    "active": "0"
+                "group4": {
+                    "groupKey": "group4",
+                    "active": "1"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest",
+                "objectKey": "objectKeyTest10",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
         },
         {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest1",
+            "objectKey": "objectKeyTest11",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -233,216 +440,80 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email12@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
-                    "attributeKey": "attr3",
-                    "value": "val",
-                    "active": "1"
-                },
-                {
-                    "attributeKey": "attr2",
-                    "value": "val",
-                    "active": "0"
-                },
-                {
-                    "attributeKey": "attr1",
-                    "value": "val",
-                    "active": "1"
-                }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group2",
-                    "active": "0"
-                },
-                {
-                    "groupKey": "group3",
-                    "active": "0"
-                },
-                {
-                    "groupKey": "group1",
-                    "active": "1"
-                }
-            ],
-            "status": 0,
-            "details": {
-                "action": "getObjectByKey",
-                "objectKey": "objectKeyTest1",
-                "gameKey": "who_is_the_rooster",
-                "gameInstanceKey": "rooster1"
-            }
-        },
-        {
-            "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest2",
-            "currentStateKey": "initialState",
-            "currentZone": "initialZone",
-            "allowLogin": "1",
-            "transient": "1",
-            "active": "0",
-            "currentGPSLocation": {
-                "currentLat": "1000000",
-                "currentLon": "1000000"
-            },
-            "loginInfo": {
-                "username": "email@mail.com",
-                "password": "passwordObject"
-            },
-            "attributes": [
-                {
+            "attributes": {
+                "attr1": {
                     "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
+                "attr3": {
                     "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group1",
-                    "active": "1"
-                },
-                {
-                    "groupKey": "group2",
-                    "active": "0"
-                },
-                {
-                    "groupKey": "group3",
-                    "active": "0"
-                }
-            ],
-            "status": 0,
-            "details": {
-                "action": "getObjectByKey",
-                "objectKey": "objectKeyTest2",
-                "gameKey": "who_is_the_rooster",
-                "gameInstanceKey": "rooster1"
-            }
-        },
-        {
-            "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest3",
-            "currentStateKey": "initialState",
-            "currentZone": "initialZone",
-            "allowLogin": "1",
-            "transient": "1",
-            "active": "0",
-            "currentGPSLocation": {
-                "currentLat": "1000000",
-                "currentLon": "1000000"
             },
-            "loginInfo": {
-                "username": "email@mail.com",
-                "password": "passwordObject"
-            },
-            "attributes": [
-                {
-                    "attributeKey": "attr1",
-                    "value": "val",
-                    "active": "1"
-                },
-                {
-                    "attributeKey": "attr2",
-                    "value": "val",
-                    "active": "0"
-                },
-                {
-                    "attributeKey": "attr3",
-                    "value": "val",
-                    "active": "1"
-                }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group1",
-                    "active": "1"
-                },
-                {
-                    "groupKey": "group2",
-                    "active": "0"
-                },
-                {
-                    "groupKey": "group3",
-                    "active": "0"
-                }
-            ],
-            "status": 0,
-            "details": {
-                "action": "getObjectByKey",
-                "objectKey": "objectKeyTest3",
-                "gameKey": "who_is_the_rooster",
-                "gameInstanceKey": "rooster1"
-            }
-        },
-        {
-            "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest4",
-            "currentStateKey": "initialState",
-            "currentZone": "initialZone",
-            "allowLogin": "1",
-            "transient": "1",
-            "active": "0",
-            "currentGPSLocation": {
-                "currentLat": "1000000",
-                "currentLon": "1000000"
-            },
-            "loginInfo": {
-                "username": "email@mail.com",
-                "password": "passwordObject"
-            },
-            "attributes": [
-                {
-                    "attributeKey": "attr1",
-                    "value": "val",
-                    "active": "1"
-                },
-                {
-                    "attributeKey": "attr2",
-                    "value": "val",
-                    "active": "0"
-                },
-                {
-                    "attributeKey": "attr3",
-                    "value": "val",
-                    "active": "1"
-                }
-            ],
-            "groups": [
-                {
+            "groups": {
+                "group4": {
                     "groupKey": "group4",
                     "active": "1"
                 },
-                {
+                "group5": {
                     "groupKey": "group5",
                     "active": "0"
                 },
-                {
+                "group6": {
                     "groupKey": "group6",
                     "active": "0"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest4",
+                "objectKey": "objectKeyTest11",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
         },
         {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest5",
+            "objectKey": "objectKeyTest12",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -453,99 +524,139 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email13@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
+            "attributes": {
+                "attr1": {
                     "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
+                "attr3": {
                     "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
+            },
+            "groups": {
+                "group4": {
                     "groupKey": "group4",
                     "active": "1"
                 },
-                {
+                "group5": {
                     "groupKey": "group5",
                     "active": "0"
                 },
-                {
+                "group6": {
                     "groupKey": "group6",
                     "active": "0"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest5",
+                "objectKey": "objectKeyTest12",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
         },
         {
-            "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest6",
-            "currentStateKey": "initialState",
-            "currentZone": "initialZone",
-            "allowLogin": "1",
-            "transient": "1",
-            "active": "0",
+            "fullObjectName": "Plot Point 1",
+            "objectKey": "plot_point_1",
+            "currentStateKey": "plotPointUnlockedForMobileAndWeb",
+            "currentZone": "comp_sci",
+            "allowLogin": "0",
+            "transient": "0",
+            "active": "1",
             "currentGPSLocation": {
                 "currentLat": "1000000",
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
-                "password": "passwordObject"
+                "username": "",
+                "password": ""
             },
-            "attributes": [
-                {
-                    "attributeKey": "attr1",
-                    "value": "val",
-                    "active": "1"
-                },
-                {
-                    "attributeKey": "attr2",
-                    "value": "val",
-                    "active": "0"
-                },
-                {
-                    "attributeKey": "attr3",
-                    "value": "val",
-                    "active": "1"
-                }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group4",
-                    "active": "1"
-                },
-                {
-                    "groupKey": "group5",
-                    "active": "0"
-                },
-                {
-                    "groupKey": "group6",
+            "attributes": {
+                "nickame": {
+                    "attributeKey": "nickame",
+                    "value": "nickname",
                     "active": "0"
                 }
-            ],
+            },
+            "groups": {
+                "plotpoints": {
+                    "groupKey": "plotpoints",
+                    "active": "1"
+                }
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest6",
+                "objectKey": "plot_point_1",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
@@ -581,7 +692,7 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
     "gameObjects": [
         {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest1",
+            "objectKey": "objectKeyTest10",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -592,51 +703,80 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email11@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
+            "attributes": {
+                "attr3": {
                     "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
+                "attr1": {
                     "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group2",
+            },
+            "groups": {
+                "group6": {
+                    "groupKey": "group6",
                     "active": "0"
                 },
-                {
-                    "groupKey": "group3",
+                "group5": {
+                    "groupKey": "group5",
                     "active": "0"
                 },
-                {
-                    "groupKey": "group1",
+                "group4": {
+                    "groupKey": "group4",
                     "active": "1"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest1",
+                "objectKey": "objectKeyTest10",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
         },
         {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest2",
+            "objectKey": "objectKeyTest11",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -647,51 +787,80 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email12@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
+            "attributes": {
+                "attr1": {
                     "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
+                "attr3": {
                     "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group1",
+            },
+            "groups": {
+                "group4": {
+                    "groupKey": "group4",
                     "active": "1"
                 },
-                {
-                    "groupKey": "group2",
+                "group5": {
+                    "groupKey": "group5",
                     "active": "0"
                 },
-                {
-                    "groupKey": "group3",
+                "group6": {
+                    "groupKey": "group6",
                     "active": "0"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest2",
+                "objectKey": "objectKeyTest11",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
         },
         {
             "fullObjectName": "fullName",
-            "objectKey": "objectKeyTest3",
+            "objectKey": "objectKeyTest12",
             "currentStateKey": "initialState",
             "currentZone": "initialZone",
             "allowLogin": "1",
@@ -702,44 +871,73 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
                 "currentLon": "1000000"
             },
             "loginInfo": {
-                "username": "email@mail.com",
+                "username": "email13@mail.com",
                 "password": "passwordObject"
             },
-            "attributes": [
-                {
+            "attributes": {
+                "attr1": {
                     "attributeKey": "attr1",
                     "value": "val",
                     "active": "1"
                 },
-                {
+                "attr2": {
                     "attributeKey": "attr2",
                     "value": "val",
                     "active": "0"
                 },
-                {
+                "attr3": {
                     "attributeKey": "attr3",
                     "value": "val",
                     "active": "1"
                 }
-            ],
-            "groups": [
-                {
-                    "groupKey": "group1",
+            },
+            "groups": {
+                "group4": {
+                    "groupKey": "group4",
                     "active": "1"
                 },
-                {
-                    "groupKey": "group2",
+                "group5": {
+                    "groupKey": "group5",
                     "active": "0"
                 },
-                {
-                    "groupKey": "group3",
+                "group6": {
+                    "groupKey": "group6",
                     "active": "0"
                 }
-            ],
+            },
+            "collections": {
+		        "coll1": {
+		            "collectionKey": "coll1",
+		            "value": [
+		                "1",
+		                "2",
+		                "3"
+		            ],
+		            "active": "1"
+		        },
+		        "coll2": {
+		            "collectionKey": "coll2",
+		            "value": [
+		                "4",
+		                "5",
+		                "6"
+		            ],
+		            "active": "1"
+		        },
+		        "coll3": {
+		            "collectionKey": "coll3",
+		            "value": [
+		                "7",
+		                "8",
+		                "9"
+		            ],
+		            "active": "1"
+		        }
+		    },
             "status": 0,
             "details": {
                 "action": "getObjectByKey",
-                "objectKey": "objectKeyTest3",
+                "objectKey": "objectKeyTest12",
                 "gameKey": "who_is_the_rooster",
                 "gameInstanceKey": "rooster1"
             }
@@ -748,7 +946,7 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
     "status": 0,
     "details": {
         "action": "getAllGameObjectsByGroupKey",
-        "groupKey": "group2",
+        "groupKey": "group4",
         "gameKey": "who_is_the_rooster",
         "gameInstanceKey": "rooster1"
     }
@@ -910,7 +1108,7 @@ curl -i -X DELETE http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooste
 
 
 ### updateObjectByKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full new name","objectKey":"objectKey6","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey6
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"fullName","objectKey":"objectKeyTest","allowLogin":"1","loginInfo":[{"username":"email@mail.com","password":"passwordObject"}],"currentStateKey":"initialState","active":"0","transient":"1","attributes":[{"attributeKey":"attr1","value":"val","active":"1"},{"attributeKey":"attr2","value":"val","active":"0"},{"attributeKey":"attr3","value":"val","active":"1"}],"groups":[{"groupKey":"group4","active":"1"},{"groupKey":"group5","active":"0"},{"groupKey":"group6","active":"0"}],"collections":[{"collectionKey":"coll1","value":[1,2,3],"active":"1"},{"collectionKey":"coll2","value":[4,5,6],"active":"1"},{"collectionKey":"coll3","value":[7,8,9],"active":"1"}],"currentGPSLocation":[{"currentLat":"1000000","currentLon":"1000000"}],"currentZone":"initialZone"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKey6
 
 
 * Receives a JSON file via PUT method:
@@ -958,6 +1156,23 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full
             "active": "0"
         }
     ],
+    "collections": [
+        {
+            "collectionKey": "coll1",
+            "value": [1,2,3],
+            "active": "1"
+        },
+        {
+            "collectionKey": "coll2",
+            "value": [4,5,6],
+            "active": "0"
+        },
+        {
+            "collectionKey": "coll3",
+            "value": [7,8,9],
+            "active": "1"
+        }
+    ],
     "currentGPSLocation": [
         {
             "currentLat": "1000000",
@@ -991,7 +1206,7 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"fullObjectName":"a full
 }
 
 
-### VerifyObjectLogin
+### verifyObjectLogin
 curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/verifyObjectLogin/email2@mail.com/passwordObject2
 
 
@@ -1019,5 +1234,33 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
         "action": "getGameInstanceID",
         "gameKey": "who_is_the_rooster",
         "gameInstanceKey": "rooter1"
+    }
+}
+
+
+### updatePrimaryObjectAttributeByObjectKey
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"currentStateKey","value":"plotPointLocked","operation":"set"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/updatePrimaryAttribute/plot_point_1
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "updatePrimaryObjectAttributeByObjectKey",
+        "objectKey": "plot_point_1",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "attributeKey": "currentStateKey"
+    }
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "plot_point_"
     }
 }

@@ -107,3 +107,7 @@ Whenever appropriate, some of the fAARS APIs will return a JSON formatted {"stat
 * 17 = Update operation was not successful, or there is nothing to update
 * 18 = Game-Object not found with given username and password
 * 19 = Provided username and password value pair already exists
+* 20 = Either the eventGenerator or eventRecipient is not activated
+* 21 = No game ECA rules corresponding to this event were found
+* 22 = Error inserting game object collections into the database
+* 23 = No game object collections entry found in database with given keys
