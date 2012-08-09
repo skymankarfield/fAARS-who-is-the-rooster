@@ -15,23 +15,105 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"eventKey":"unlock","eve
 
 * Sample Response 'On Success':
 {
+    "gameECARules": [
+        {
+            "gameECARuleKey": "update_plot_point_to_unlocked_in_24hrs",
+            "conditions": [
+                {
+                    "conditionKey": "checkPrimaryAttribute",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "status": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gameECARuleKey": "update_plot_point_to_unlocked_in_2hrs",
+            "conditions": [
+                {
+                    "conditionKey": "checkPrimaryAttribute",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "status": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gameECARuleKey": "update_plot_point_to_locked",
+            "conditions": [
+                {
+                    "conditionKey": "checkPrimaryAttribute",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "status": 0
+                }
+            ],
+            "status": 0,
+            "actions": [
+                {
+                    "actionKey": "updatePrimaryObjectAttributeByObjectKey",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "output": {
+                        "status": 0,
+                        "details": {
+                            "action": "updatePrimaryObjectAttributeByObjectKey",
+                            "objectKey": "plot_point_1",
+                            "gameKey": "who_is_the_rooster",
+                            "gameInstanceKey": "rooster1",
+                            "attributeKey": "currentStateKey"
+                        }
+                    },
+                    "status": 0
+                }
+            ]
+        },
+        {
+            "gameECARuleKey": "update_plot_point_to_unlocked_via_mobile",
+            "conditions": [
+                {
+                    "conditionKey": "checkPrimaryAttribute",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "status": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gameECARuleKey": "update_plot_point_to_unlocked_via_mobile_web",
+            "conditions": [
+                {
+                    "conditionKey": "checkPrimaryAttribute",
+                    "objectScope": "recipient",
+                    "objectKey": "plot_point_1",
+                    "status": 1
+                }
+            ],
+            "status": 1
+        }
+    ],
     "status": 0,
     "details": {
-        "action": "performOperationByObjectKey",
-        "objectKey": "objectKey6",
+        "action": "catchEvent",
+        "eventGeneratorKey": "game_instance_1",
+        "eventRecipientKey": "plot_point_1",
+        "eventKey": "unlock",
         "gameKey": "who_is_the_rooster",
-        "gameInstanceKey": "rooster1",
-        "attributeKey": "attr1"
+        "gameInstanceKey": "rooster1"
     }
 }
 
 
 * Sample Response 'On Failure':
 {
-    "status": 8,
-    "message": "No game object ID found",
+    "status": 2,
+    "message": "No game ID or game instance ID found",
     "details": {
-        "action": "getGameObjectID",
-        "objectKey": "ObjectKeyTest"
+        "action": "getGameInstanceID",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster"
     }
 }
