@@ -1239,7 +1239,15 @@ curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/
 
 
 ### updatePrimaryObjectAttributeByObjectKey
-curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"currentStateKey","value":"plotPointLocked","operation":"set"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/updatePrimaryAttribute/plot_point_1
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"currentStateKey","value":"plotPointLocked","operation":"set"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/plot_point_1/primaryAttributes
+
+
+* Receives a JSON file via PUT method:
+{
+    "attributeKey": "currentStateKey",
+    "value": "plotPointLocked",
+    "operation": "set"
+}
 
 
 * Sample Response 'On Success':
@@ -1262,5 +1270,200 @@ curl -i -X PUT -H 'Content-Type: application/json' -d '{"attributeKey":"currentS
     "details": {
         "action": "getGameObjectID",
         "objectKey": "plot_point_"
+    }
+}
+
+
+### addSecodaryAttributeByObjectKey
+curl -i -X POST -H 'Content-Type: application/json' -d '{"attributeKey":"lonely","value":"-1","active":"1"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/secondaryAttributes
+
+
+* Receives a JSON file via POST method:
+{
+    "attributeKey": "lonely",
+    "value": "-1",
+    "active": "1"
+}
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "addSecondaryAttributeByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "attributeKey": "lonely"
+    }
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "plot_point_"
+    }
+}
+
+
+### addCollectionByObjectKey
+curl -i -X POST -H 'Content-Type: application/json' -d '{"collectionKey":"collN","value":["a",1,"b",2],"active":"1"}' http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/collections
+
+
+* Receives a JSON file via POST method:
+{
+    "collectionKey": "collN",
+    "value": ["a",1,"b",2],
+    "active": "1"
+}
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "addCollectionByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "collectionKey": "collN"
+    }
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "plot_point_"
+    }
+}
+
+
+### collectionExistsInObjectByObjectKey
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/collections/collectionExists/coll2
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "collectionExistsInObjectByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "collectionKey": "coll2"
+    },
+    "collectionExists": "true"
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "objectKey21"
+    }
+}
+
+
+### secondaryAttributeExistsInObjectByObjectKey
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/secondaryAttributes/attributeExists/lonely
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "secondaryAttributeExistsInObjectByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "attributeKey": "lonely"
+    },
+    "attributeExists": "true"
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "objectKey21"
+    }
+}
+
+
+### getSecondaryAttributeValueInObjectByObjectKey
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/secondaryAttributes/lonely
+
+
+* Sample Response 'On Success':
+{
+    "status": 0,
+    "details": {
+        "action": "getSecondaryAttributeValueInObjectByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "attributeKey": "lonely"
+    },
+    "value": "-1"
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 8,
+    "message": "No game object ID found",
+    "details": {
+        "action": "getGameObjectID",
+        "objectKey": "objectKey21"
+    }
+}
+
+
+### getCollectionValueInObjectByObjectKey
+curl -i -X GET http://faars-rocketfuel.javakafe.com/who_is_the_rooster/rooster1/gameObjects/objectKeyTest/collections/coll3
+
+
+* Sample Response 'On Success':
+{
+    "value": [
+        "7",
+        "8",
+        "9"
+    ],
+    "status": 0,
+    "details": {
+        "action": "getCollectionValueInObjectByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "collectionKey": "coll3"
+    }
+}
+
+
+* Sample Response 'On Failure':
+{
+    "status": 23,
+    "message": "No game object collections entry found in database with given keys",
+    "details": {
+        "action": "getCollectionValueInObjectByObjectKey",
+        "objectKey": "objectKeyTest",
+        "gameKey": "who_is_the_rooster",
+        "gameInstanceKey": "rooster1",
+        "collectionKey": "coll36"
     }
 }
