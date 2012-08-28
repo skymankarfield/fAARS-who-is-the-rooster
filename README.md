@@ -111,3 +111,4 @@ Whenever appropriate, some of the fAARS APIs will return a JSON formatted {"stat
 * 21 = No game ECA rules corresponding to this event were found
 * 22 = Error inserting game object collections into the database
 * 23 = No game object collections entry found in database with given keys
+* 24 = Error creating scheduled event. The time set is in the past
